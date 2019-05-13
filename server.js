@@ -35,14 +35,23 @@ fs.appendFile('./file.txt', ' Some more text goes here in file 1', err => {
 
 });
 
+//create new file
 fs.writeFile('bye.txt', 'Sorry you are going :(', err => {
   if(err) {
     console.log(err);
   }
 });
 
+//readFile Sync
 const file = fs.readFileSync('./file.txt');
 console.log('Sync', (file).toString());
+
+//delete file
+fs.unlink('./bye.txt', err => {
+  if(err){
+    console.log(err);
+  }
+});
 
 app.post('/profile', (req,res)=> {
   console.log('username :', req.body.username);
